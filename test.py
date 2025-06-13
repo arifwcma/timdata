@@ -9,10 +9,10 @@ import numpy as np
 
 def test():
     model = SomModel()
-    model.load_state_dict(torch.load("model.pt"))
+    model.load_state_dict(torch.load("model_aux.pt"))
     model.eval()
 
-    test_dataset = SomDataset(is_train=False)
+    test_dataset = SomDataset(is_train=False, aux=["elevation","moisture","temp"])
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
     criterion = nn.MSELoss()

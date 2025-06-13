@@ -10,7 +10,7 @@ def train():
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    train_dataset = SomDataset(is_train=True)
+    train_dataset = SomDataset(is_train=True, aux=["elevation","moisture","temp"])
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 
     model.train()
@@ -25,7 +25,7 @@ def train():
             total_loss += loss.item()
         print(f"Epoch {epoch+1}/50 - Loss: {total_loss:.4f}")
 
-    torch.save(model.state_dict(), "model.pt")
+    torch.save(model.state_dict(), "model_aux.pt")
 
 if __name__ == "__main__":
     train()
