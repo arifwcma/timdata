@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("vectis.csv", encoding="ISO-8859-1")
+df = pd.read_csv("data/original/vectis.csv", encoding="ISO-8859-1")
 
 df_selected = df[[
     'Longitude',
@@ -18,4 +18,4 @@ df_selected = df[[
     'Soil Mois(%)': 'moisture'
 })
 
-df_selected.to_csv("vectis_filtered.csv", index=False)
+df_selected.to_csv("data/exported/vectis.csv", index=False)
