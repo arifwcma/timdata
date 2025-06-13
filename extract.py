@@ -49,17 +49,17 @@ for i, band in enumerate(bands):
 os.makedirs("data/exported", exist_ok=True)
 df.to_csv("data/exported/vectis_full.csv", index=False)
 
-task = ee.batch.Export.image.toCloudStorage(
-    image=image.select(bands),
-    description="export_sentinel_image",
-    bucket="timdata-bucket",
-    fileNamePrefix="data/exported/sentinel_image",
-    region=bbox,
-    scale=10,
-    fileFormat="GeoTIFF",
-    maxPixels=1e9
-)
-task.start()
+# task = ee.batch.Export.image.toCloudStorage(
+#     image=image.select(bands),
+#     description="export_sentinel_image",
+#     bucket="timdata-bucket",
+#     fileNamePrefix="data/exported/sentinel_image",
+#     region=bbox,
+#     scale=10,
+#     fileFormat="GeoTIFF",
+#     maxPixels=1e9
+# )
+# task.start()
 
 print("vectis_full.csv written")
-print("sentinel_image.tif export task submitted")
+#print("sentinel_image.tif export task submitted")

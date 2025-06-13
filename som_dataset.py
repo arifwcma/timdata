@@ -4,13 +4,13 @@ from torch.utils.data import Dataset
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
-
 class SomDataset(Dataset):
-    def __init__(self, is_train=True):
+    def __init__(self, is_train=True, aux=None):
         df = pd.read_csv("data/exported/vectis_full.csv").dropna()
-
         bands = ["B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B11", "B12"]
-        X = df[bands].values.astype("float32")
+        features = bands + (aux if aux else [])
+
+        X = df[features].values.astype("float32")
         y = df["som"].values.astype("float32")
 
         scaler = MinMaxScaler()
