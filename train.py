@@ -6,7 +6,7 @@ from som_dataset import SomDataset
 from som_model import SomModel
 
 def train():
-    model = SomModel()
+    model = SomModel(input_size=13)
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 

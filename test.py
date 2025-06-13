@@ -8,7 +8,7 @@ import numpy as np
 
 
 def test():
-    model = SomModel()
+    model = SomModel(input_size=13)
     model.load_state_dict(torch.load("model_aux.pt"))
     model.eval()
 
