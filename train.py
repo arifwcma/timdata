@@ -26,3 +26,6 @@ def train():
         print(f"Epoch {epoch+1}/50 - Loss: {total_loss:.4f}")
 
     torch.save(model.state_dict(), "model.pt")
+
+if __name__ == "__main__":
+    train()
