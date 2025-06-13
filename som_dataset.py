@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 class SomDataset(Dataset):
     def __init__(self, is_train=True, aux=None):
-        df = pd.read_csv("data/exported/vectis_full_offline.csv").dropna()
+        df = pd.read_csv("data/exported/vectis_full.csv").dropna()
         bands = ["B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B11", "B12"]
         features = bands + (aux if aux else [])
 
